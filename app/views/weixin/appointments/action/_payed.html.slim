@@ -1,0 +1,18 @@
+.appointment-tips
+  i.weui_icon_info_circle
+  | 请在就诊时提供上述二维码。<br/>如有其它需求，请拨打客服电话 <a href="tel:17771735920">17771735920</a> 。
+.appointment-action
+  = normal_button "点此查看详情", detail_weixin_appointment_path(appointment)
+  
+javascript:
+  
+  $(document).ready(function(){
+    $('.qrcode').qrcode({
+      width: 200,
+      height: 200,
+      foreground: "#000000",
+      background: "#ffffff",
+      correctLevel: 1,
+      text: "#{ Rails.application.message_verifier(appointment.doctor.openid).generate(appointment.appoint_unique_number)}"
+      });
+  });

@@ -1,0 +1,27 @@
+.ui.large.breadcrumb#manage-content-nav
+  a.section 管理平台
+  i.right.chevron.icon.divider
+  a.section 医生管理
+  i.right.chevron.icon.divider
+  a.section 管理医生申请
+.ui.divider
+
+#manage-content-body
+  table.ui.selectable.striped.padded.table
+    thead
+      tr.center.aligned
+        th.two.wide 姓名
+        th.three.wide 微信OpenID
+        th.four.wide 操作
+    tbody
+      - @predoctors.each do |p|
+        tr id="#{p.id}"
+          td
+            = p.name
+          td
+            = p.openid
+          td
+            = render partial: 'table_func', locals: { predoctor: p }
+    tfoot
+      tr
+        th colspan="3"

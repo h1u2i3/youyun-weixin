@@ -1,0 +1,15 @@
+= weixin_header '添加疗效评价', weixin_profile_path
+= weixin_content do
+  .new-comment
+    .comment-logo
+      i.weui_icon_msg.weui_icon_info
+    .comment-message
+      | 请对疗效进行客观的评价<br/>
+      | 您的评价会及时的反馈给相应的医生。
+    .comment-area
+      .weui_cells.weui_cells_form
+          .weui_cell
+              .weui_cell_bd.weui_cell_primary
+                  textarea.weui_textarea[name="content" placeholder="请输入评论, 例如近期情况如何, 跟之前相比有何改变, 对下次的诊疗有什么要求等等" rows="6"]
+    .comment-action
+      button.weui_btn.weui_btn_primary#new-comment-button[data-link="#{weixin_appointment_comments_path(@appointment)}" data-doctor="#{@appointment.doctor_id}" data-user="#{@appointment.user_id}"] 提交疗效评价

@@ -1,0 +1,9 @@
+p.calender--date data-day="#{date.strftime('%Y-%m-%d')}"
+  = date.strftime('%d')
+  - if calenders[date.strftime('%Y-%m-%d')] && calenders[date.strftime('%Y-%m-%d')].sum(&:available_capacity_count) > 0
+    p.capacity.capacity__enable
+      = calenders[date.strftime('%Y-%m-%d')].sum(&:available_capacity_count)
+  - else
+    - if calenders[date.strftime('%Y-%m-%d')]
+      p.capacity.capacity__disable
+        = calenders[date.strftime('%Y-%m-%d')].sum(&:calender_capacity)

@@ -1,0 +1,16 @@
+.popup-mask
+.sidebar
+  = image_tag "logo.jpg", class: 'logo'
+  .weui_cells  
+    .weui_cell[data-link="#{weixin_root_path}"]
+      .weui_cell_bd.weui_cell_primary
+        span.icon.icon-home
+        | 示例站点服务
+    .weui_cell[data-link="#{weixin_doctors_path}"]
+      .weui_cell_bd.weui_cell_primary
+        span.icon.icon-search
+        | 浏览医生
+    .weui_cell[data-link="#{weixin_profile_path}"]
+      .weui_cell_bd.weui_cell_primary
+        span.icon.icon-person
+        | 我的示例站点

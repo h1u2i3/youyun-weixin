@@ -1,0 +1,37 @@
+table.ui.selectable.striped.table
+  thead
+    tr.center.aligned
+      th.two.wide 订单号
+      th.two.wide 用户名
+      th.one.wide 医生名
+      th.two.wide 服务内容
+      th.one.wide 价格
+      th.five.wide 预约时间
+      th.one.wide 联系电话
+      th.two.wide 操作
+  tbody
+    - @appointments.each do |appointment|
+      tr.center.aligned id="appointment-#{appointment.id}"
+        td
+          = appointment.appoint_unique_number
+        td
+          = appointment.user.nickname if appointment.user
+        td
+          = appointment.doctor&.name
+        td
+          = appointment.service_name
+        td
+          = appointment.service_price
+        td
+          = appointment.calender_day + appointment.calender_time
+        td
+          = appointment.cellphone
+        td
+          - if appointment.refunding && !appointment.canceled?
+            = link_to "执行退款", refund_manage_appointment_path(appointment), method: :post, remote: true, data: { confirm: "你确定要执行退款么？执行退款后即不可恢复！"}, class: "ui mini button red"
+          - else
+            = link_to "查看详情", manage_appointment_path(appointment), remote: true, class: "ui mini button green"
+  tfoot
+    tr
+      th colspan="8"
+        = paginate @appointments unless @appointments.size == 1

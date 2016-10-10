@@ -1,0 +1,23 @@
+.new-comment {
+  text-align: center;
+  width: 100%;
+
+  .comment-logo {
+    margin: 20px auto;
+  }
+
+  .comment-message {
+    font-size: 25px;
+    margin: 20px auto;
+  }
+
+  .comment-action {
+    margin: 0;
+    margin: 20px auto;
+    width: 60%;
+  }
+}
+
+.js_tooltips {
+  z-index: 10;
+}

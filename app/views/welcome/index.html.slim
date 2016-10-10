@@ -1,0 +1,79 @@
+header
+  = image_tag "logo.jpg", size: "60x60", class: "site_logo"
+  ul
+    li 关于示例站点
+    li 关注示例站点
+section.hero
+  .hero_description
+    .description
+      h1 我们关注您的健康。<br/>我们提供优质医生的约见服务。我们接受您的任何建议。
+      button.ui.green.huge.button 关注我们
+      button.ui.green.huge.basic.button 提交建议
+  .mask
+  .hero_img
+    = image_tag ""
+section.process
+  ul
+    li
+      header 选取医生
+      section
+        p 选取您需要服务的医生
+        = image_tag "step1.png", class: "ui fluid middle aligned image setp_img"
+    li 
+      header 购买服务
+      section
+        p 按实际情况填写并购买服务
+        = image_tag "step2.png", class: "ui fluid middle aligned image setp_img"
+    li
+      header 接受服务
+      section
+        p 前往服务指定的地点接受服务
+        = image_tag "step3.png", class: "ui fluid middle aligned image setp_img"
+section.ui.two.column.stackable.grid.wechat
+  section.intro.column
+    header 关注我们
+    section 公众号提供约见服务。<br/> 购买服务，评价返现金。<br/>每个月开展义诊活动。<br/>更有专业医生针对常见问题的讲座。<br/>更多等你来发现 ...
+  aside.column
+    = image_tag "wechat.jpg", class: "wechat_img", size: "200x200"      
+section.ui.two.column.stackable.grid.comment
+  section.form.column
+    form.ui.form
+      .field
+        label 您的姓名:
+        input[type="text" name="name" placeholder="请填写您的姓名"]
+      .field
+        label 建议类别:
+        select.ui.dropdown
+          option[value=""] 请选择
+          option[value="0"] 推荐医生
+          option[value="1"] 增加功能
+          option[value="3"] 其它建议
+      .field
+        label 联系方式:
+        input[type="text" name="name" placeholder="请填写邮箱或者电话"]
+      .field
+        label 建议内容
+        textarea[name="content" placeholder="填写具体内容"]
+      button.ui.green.button[type="submit"] 提交建议
+  aside.column
+    header 提交建议
+    section 如果你发现了好的医生<br/> 如果你对我们有什么建议或者意见<br/>如果有个更好的提议<br/>请你告诉我们 ...    
+footer
+  = image_tag "logo.jpg", size: "40x40", class: "site_logo"
+  ul.foot_nav
+    li 关于示例站点
+    li 关注示例站点
+  .copyright
+    p &copy 2016 七星优创网络科技发展(武汉)有限公司版权所有
+  .contact
+    p 武汉市洪山区野芷湖西路16号创意天地高层11号
+  .beian
+    p 鄂ICP备15023321号-1
+    
+javascript:
+
+  $(document).ready(function(){
+    $('select.dropdown').dropdown();
+  });
+    
+  

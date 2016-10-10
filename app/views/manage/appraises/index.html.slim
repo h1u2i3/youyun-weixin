@@ -1,0 +1,20 @@
+.ui.large.breadcrumb#manage-content-nav
+  a.section 管理平台
+  i.right.chevron.icon.divider
+  a.section 评论管理
+.ui.divider
+
+#manage-appraise-body
+  .ui.grid
+    .ui.five.wide.column
+      .ui.action.left.icon.input
+        i.search.icon
+        input#search-appraise-value type="text" placeholder="请输入订单编号"
+        .ui.teal.button#search-appraise-button 查找评价
+    .ui.seven.wide.column
+      .ui.buttons
+        = link_to "全部疗效评论", manage_appraises_path(type: 'comment'), class: 'ui button appointment', remote: true
+        = link_to "已屏蔽疗效评论", manage_appraises_path(type: 'comment', approved: false), class: 'ui button appointment', remote: true
+        = link_to "全部评分", manage_appraises_path(type: 'rating'), class: 'ui button appointment', remote: true
+        = link_to "已屏蔽评分", manage_appraises_path(type: 'rating', approved: false), class: 'ui button appointment', remote: true
+  #appraise-container

@@ -1,0 +1,51 @@
+.good-container {
+  margin: 20px 0;
+  background-color: $white-color;
+
+  .good-edit {
+    margin-top: 30px;
+
+    .edit-tip {
+      text-align: center;
+      font-size: 14px;
+      color: rgba($black-color, 0.7);
+      width: 100%;
+      position: absolute;
+      bottom: 20px;
+    }
+
+    .edit-action {
+      width: 60%;
+      margin: 0;
+      margin: 20px auto;
+      margin-top: 50px;
+    }
+  }
+}
+
+.good-price {
+  position: absolute;
+  background-color: $red-color;
+  padding: 0 10px;
+  font-size: $small-font-size;
+  color: $white-color;
+  border-radius: 5px;
+  height: 20px;
+  line-height: 20px;
+  @include calc("top", "50% - 10px");
+  right: 100px;
+}
+
+.good-description {
+  margin-top: 10px;
+  font-size: 10px;
+  color: rgba($black-color, .6);
+  @include calc("width", "100% - 100px");
+}
+
+#good-delete {
+  width: 60%;
+  margin: 0;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}

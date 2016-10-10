@@ -1,0 +1,11 @@
+<% if @appointment %>
+  <% if @appointment.today? %>
+    $('.clinic').empty().append("<%= j render partial: 'identify_success' %>")
+  <% elsif @appointment.past? %>
+    $('.clinic').empty().append("<%= j render partial: 'identify_past' %>")
+  <% else %>
+    $('.clinic').empty().append("<%= j render partial: 'identify_future' %>")
+  <% end %>
+<% else %>
+  $('.clinic').empty().append("<%= j render partial: 'identify_error' %>")
+<% end %>

@@ -1,0 +1,18 @@
+.ui.large.breadcrumb#manage-content-nav
+  a.section 管理平台
+  i.right.chevron.icon.divider
+  a.section 基础数据
+  i.right.chevron.icon.divider
+  a.section 诊疗标签
+.ui.divider
+
+#manage-content-body
+  h2
+    i.tags.icon
+    | 诊疗标签
+  .ui.right.labeled.left.icon.input
+    i.tags.icon
+    input#baseinfo-tag-value placeholder="输入名称" type="text"
+    a.ui.tag.label#baseinfo-add-tag 增加诊疗标签
+  #tag-labels
+    = render partial: 'project_info_label', collection: @tags, as: :object, locals: { kind: 'tag' }

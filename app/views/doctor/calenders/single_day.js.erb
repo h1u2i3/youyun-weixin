@@ -1,0 +1,11 @@
+$('.calender-edit').empty().append("<%= j render partial: 'index'%>")
+$('#calender-choose .weui_dialog_bd').empty().append("<%= j render partial: 'single_day' %>");
+var $dialog = $('#calender-choose');
+var $mask = $('#calender-choose .weui_mask')
+$dialog.show();
+$dialog.find('.weui_btn').on('click', function () {
+   $dialog.hide();
+});
+$mask.on('click', function() {
+  $dialog.hide();
+});

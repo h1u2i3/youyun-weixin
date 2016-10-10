@@ -1,0 +1,12 @@
+.ui.three.column.centered.grid#manage-login
+  .column.row
+    = image_tag "logo.jpg", size:'200x200'
+  .column
+    - if flash[:notice]
+      .ui.negative.message
+        .header
+          = flash[:notice]
+    = simple_form_for @sign, url: manage_login_path do |f|
+      = f.input :name
+      = f.input :password
+      = f.button :submit, class: 'fluid', value: '登入'

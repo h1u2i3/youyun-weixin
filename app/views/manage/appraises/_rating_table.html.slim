@@ -1,0 +1,31 @@
+table.ui.selectable.striped.table
+  thead
+    tr.center.aligned
+      th.two.wide 用户名
+      th.two.wide 医生名
+      th.two.wide 服务内容
+      th.two.wide 态度评分
+      th.two.wide 专业知识评分
+      th.two.wide 评分
+      th.three.wide 操作
+  tbody
+    - @resources.each do |rating|
+      tr.center.aligned id="rating-#{rating.id}"
+        td
+          = rating.user.nickname if rating.user
+        td
+          = rating.doctor.name
+        td
+          = rating&.appointment&.service_name
+        td
+          = rating.attitude
+        td
+          = rating.professional
+        td
+          = rating.statisfication
+        td.center.aligned
+          = link_to "屏蔽", ban_manage_appraise_path(type: @type, id: rating.id), method: :post, remote: true, data: { confirm: "你确定要屏蔽该评分么？"}, class: "ui button red #{'disabled' unless rating.approved? }"
+  tfoot
+    tr
+      th colspan="7"
+        = paginate @resources

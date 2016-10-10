@@ -1,0 +1,25 @@
+= form_for [:weixin, appointment], remote: true, html: { class: 'buy-appointment--form' } do |f|
+  = f.hidden_field :doctor_id
+  = f.hidden_field :user_id
+  = f.hidden_field :good_id
+  .weui_cells_title 输入手机号码方便联系
+  .weui_cells.weui_cells_form
+      .weui_cell
+          .weui_cell_hd
+            label.weui_label 手机号
+          .weui_cell_bd.weui_cell_primary
+              = f.text_field :cellphone, class: 'weui_input', placeholder: "请输入手机号码"
+  .weui_cells_title 请选择具体服务时间
+  .weui_cells
+      .weui_cell.weui_cell_select
+          .weui_cell_bd.weui_cell_primary
+              = f.collection_select :calender_id, @calenders, :id, :calender_detail, {}, { class: "weui_select" }
+  .weui_cells_title 简单描述一下症状或者需求(姓名,性别,年龄,症状)
+  .weui_cells.weui_cells_form
+      .weui_cell
+          .weui_cell_bd.weui_cell_primary
+              = f.fields_for :case, appointment.case do |ff|
+                = ff.text_area :symptom, class: 'weui_textarea', placeholder: "请仔细输入，输入信息应包括: \n 姓名,性别,年龄,症状", rows: 3
+  .weui_cells_tips 请确定上述信息无误并点击提交
+  .weui_btn_area
+      a.weui_btn.weui_btn_primary[href="javascript:" id="buy-appointment--form-submit"] 提交购买

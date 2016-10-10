@@ -1,0 +1,16 @@
+template_id: "0FPgilM8IXz5G7pHMMGUU1PjnDmbw6OjrjUIFBYjZJU"
+url: <%= appointment_url %>
+topcolor: "#FF0000"
+data:
+  first:
+    value: <%= "您好，你购买的#{ doctor.name }的#{ appointment.service_name }服务已经成功取消。" %>
+    color: "#0A0A0A"
+  keyword1:
+    value: <%= "#{appointment.appoint_unique_number}" %>
+    color: "#173177"
+  keyword2:
+    value: <%= "#{appointment.service_price}" %>
+    color: "#173177"
+  remark:
+    value: <%= "退款到账时间以微信支付的退款时间为准，如有其它问题请直接通过客服电话或者微信公众号联系我们。" %>
+    color: "#0000FF"

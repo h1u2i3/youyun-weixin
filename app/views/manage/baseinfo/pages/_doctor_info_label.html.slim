@@ -1,0 +1,4 @@
+.ui.red.label id="#{kind}-#{object.id}"
+  | #{object.name}
+  = link_to "/manage/baseinfo/#{kind}s/#{object.id}", remote: true, method: :delete, data: { confirm: '是否确定要删除？' }
+    i.delete.icon

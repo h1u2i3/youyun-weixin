@@ -1,0 +1,38 @@
+= weixin_header "管理日程", doctor_root_path
+= weixin_content do
+
+  .calender-container
+    = render partial: 'table'
+    .calender-edit
+      = render partial: 'index'
+.weui_dialog_confirm#calender-choose[style='display:none;']
+  .weui_mask
+  .weui_dialog
+    .weui_dialog_hd
+      strong.weui_dialog_title 请选择您要编辑的当天的日程
+    .weui_dialog_bd
+    .weui_dialog_ft
+    
+.weui_dialog_confirm#calender-confirm[style='display:none;']
+  .weui_mask
+  .weui_dialog
+    .weui_dialog_hd
+      strong.weui_dialog_title 提示
+    .weui_dialog_bd 确定要删除该日程么？
+    .weui_dialog_ft
+      a[href="javascript:;" class="weui_btn_dialog default"] 取消
+      a[href="javascript:;" class="weui_btn_dialog primary"] 确定
+    
+.weui_dialog_alert#calender-success[style="display: none;"]
+    .weui_mask
+    .weui_dialog
+        .weui_dialog_hd
+          strong.weui_dialog_title 提示
+        .weui_dialog_bd 操作成功，请在上表中查看你的日程消息
+        .weui_dialog_ft
+            a.weui_btn_dialog.primary[href="javascript:;"] 确定
+            
+        
+    
+      
+  

@@ -1,0 +1,7 @@
+.clinic-icon
+  i.weui_icon_msg.weui_icon_safe_success
+.clinic-message
+  | 成功识别<br/>
+  = "订单号为#{@appointment.appoint_unique_number}"
+.clinic-action
+  button.weui_btn.weui_btn_primary#clinic-confirm[data-appointment="#{@appointment.id}" data-link="#{doctor_clinics_url}"] 点此确定诊疗结束

@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+.sidebar {
+  position: fixed;
+  left: -300px;
+  top:0;
+  z-index: 9999;
+  height: 100vh;
+  visibility: hidden;
+  background: $white-color;
+  width: 200px;
+  @include transition(all 300ms ease-in-out);
+
+  img {
+    width: 100px;
+    height: 100px;
+    margin: 150px 0 50px 20px;
+  }
+
+  span {
+    margin-left: 10px;
+    margin-right: 20px;
+  }
+
+  .weui_cells {
+    margin-top: 60px;
+    color: rgba($black-color, .7);
+    width: 200px;
+  }
+
+  &.sidebar__open {
+    visibility: visible;
+    left: 0;
+    @include transition(all 300ms ease-in-out);
+  }
+
+}
+
+.popup-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($black-color, 0.6);
+  visibility: hidden;
+  z-index: 9998;
+  @include transition(all 300ms ease-in-out);
+
+  &.popup-mask__open {
+    visibility: visible;
+    @include transition(all 300ms ease-in-out);
+  }
+}

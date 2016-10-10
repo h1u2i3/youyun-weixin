@@ -1,0 +1,15 @@
+.ui.modal.add-calender-modal
+  i.close.icon
+  #calender-notice
+  = simple_form_for [:manage, @calender], remote: true do |f|
+    = f.input :calender_day, wrapper_html: { class: 'disabled' }
+    = f.input :calender_place, as: :select, collection: @doctor.places.map(&:address), input_html: { class: 'ui dropdown'}
+    .field
+      = text_field_tag :address
+    = f.hidden_field :doctor_id
+    = f.input :start_time_text
+    = f.input :end_time_text
+    = f.input :calender_capacity
+    = f.button :submit, class: 'fluid'
+  - if @calender.id
+    = link_to "删除日程", manage_calender_path(@calender), remote: true, method: :delete, data: { confirm: '是否确定要删除？' }, class: 'ui red button fluid delete-calender'

@@ -1,0 +1,4 @@
+.appointment-detail
+  .qrcode
+  .appointment-info[data-channel="appointments" data-appointment="#{appointment.id}"]
+  = render partial: "weixin/appointments/detail/base", locals: {appointment: appointment}

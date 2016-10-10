@@ -1,0 +1,33 @@
+table.ui.striped.padded.table
+  thead
+    tr.center.aligned
+      th.collapsing 微信OpenID
+      th.collapsing 用户名
+      th.collapsing 是否已订阅公众号
+      th.collapsing 已购买次数
+      th.collapsing 已评价次数
+      th.collapsing 操作
+  tbody
+    - users.each do |user|
+      tr.center.aligned id="user-#{user.id}"
+        td
+          = user.openid
+        td
+          = user.nickname
+        td
+          - if user.subscribe
+            .ui.blue.circular.label 否
+          - else
+            .ui.red.circular.label 否
+        td
+          p.ui.green.label
+            | #{user.appointments.size}
+        td
+          p.ui.green.label
+            | #{user.comments.size}
+        td
+          = link_to '删除用户', manage_user_path(user), method: :delete, remote: true, class: 'ui red mini button', data: { confirm: '是否确定要删除？' }
+  tfoot
+    tr
+      th colspan="6"
+        = paginate users

@@ -1,0 +1,5 @@
+$("#doctor-notice").empty();
+$("#doctor-form").empty();
+$("#manage-doctor-table").empty();
+$("<%= j render partial: 'form', locals: { doctor: @doctor } %>").appendTo("#doctor-form");
+$('select.dropdown').dropdown();

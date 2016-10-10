@@ -1,0 +1,4 @@
+$('.ui.modal').modal('hide');
+$(".ui.dimmer.modals.page").empty();
+$("<%= j render partial: 'error' %>").appendTo('#error-modal');
+$("#error-modal .ui.modal").modal('show');

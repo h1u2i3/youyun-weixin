@@ -1,0 +1,14 @@
+.ui.two.column.grid
+  .column#good-doctor-detail
+    = image_tag "logo.jpg", size: "80x80"
+    h1#name
+      | 姓名:&nbsp;&nbsp;
+      = @doctor.name
+    h4#openid.ui.label
+      = @doctor.openid
+    .clearfix
+    = link_to '新增服务', new_manage_good_path(doctor_id: @doctor.id), remote: true, class: 'ui large blue button'
+    #good-form
+  .column
+    #doctor-good-cards
+      = render partial: 'goods'

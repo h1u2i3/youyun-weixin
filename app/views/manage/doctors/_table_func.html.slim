@@ -1,0 +1,6 @@
+= link_to '编辑', edit_manage_doctor_path(doctor), remote: true, class: 'ui blue mini button'
+= link_to '删除', manage_doctor_path(doctor), method: :delete, remote: true, class: 'ui red mini button', data: { confirm: '是否确定要删除？' }
+- if doctor.published
+  = link_to '撤除', publish_manage_doctor_path(doctor), id: 'unpublish', method: :post, remote: true, class: 'ui red mini button', data: { confirm: '是否确定要撤除该医生？' }
+- else
+  = link_to '发布', publish_manage_doctor_path(doctor), id: 'publish', method: :post, remote: true, class: 'ui blue mini button', data: { confirm: '是否确定要发布该医生？' }

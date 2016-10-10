@@ -1,0 +1,4 @@
+$('.ui.modal').modal('hide');
+$(".ui.dimmer.modals.page").empty();
+$(".item#<%= @calender.id %>").empty();
+$(".item#<%= @calender.id %>").append($("<%= j render partial: 'label', locals: {calender: @calender} %>"));

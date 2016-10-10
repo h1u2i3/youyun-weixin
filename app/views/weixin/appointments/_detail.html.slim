@@ -1,0 +1,34 @@
+dl.apm--detail
+  dt 订单价格:
+  dd
+    = appointment.service_price
+  .clearfix
+  dt 订单编号:
+  dd
+    = appointment.appoint_unique_number
+  .clearfix
+  dt 服务医生:
+  dd
+    = appointment.doctor.name
+  .clearfix
+  dt 服务内容:
+  dd
+    = appointment.service_name
+  .clearfix
+  dt 服务详情:
+  dd
+    = appointment.service_description
+  .clearfix
+  dt 服务时间:
+  dd
+    = appointment.calender_day + appointment.calender_time
+  .clearfix
+  dt 您联系方式
+  dd
+    = appointment.cellphone
+  .clearfix
+  dt 症状或需求
+  dd
+    = appointment.case.symptom if appointment.case
+.apm--back
+  = back_button

@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title
+      | 示例站点
+    = stylesheet_link_tag    'manage', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'manage', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    #manage-body
+      = render 'manage/shared/menu'
+      #manage-content
+        = yield

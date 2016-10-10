@@ -1,0 +1,6 @@
+var $dialog = $('#clinic-success');
+$dialog.show();
+$dialog.find('.weui_btn_dialog').on('click', function () {
+   $dialog.hide();
+   location.reload();
+});

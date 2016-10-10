@@ -1,0 +1,20 @@
+.ui.large.breadcrumb#manage-content-nav
+  a.section 管理平台
+  i.right.chevron.icon.divider
+  a.section 医生管理
+  i.right.chevron.icon.divider
+  a.section 管理医生信息
+.ui.divider
+
+#manage-content-body
+  .ui.two.column.grid
+    .column
+      .ui.action.left.icon.input
+        i.search.icon
+        input#search-doctor-value type="text" placeholder="输入医院或者姓名"
+        .ui.teal.button#search-doctor-button 查找医生
+    .column
+      a.ui.red.button#new-doctor-button href='/manage/doctors/new' data-remote="true" 新增医生
+  #doctor-notice
+  #doctor-form
+  #manage-doctor-table

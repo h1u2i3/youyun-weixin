@@ -1,0 +1,6 @@
+$('#detail-doctor').empty();
+<% if @doctor %>
+  $("<%= j render partial: 'detail', locals: { doctor: @doctor } %>").appendTo("#detail-doctor");
+<% else %>
+  $("<%= j render 'nodoctor' %>").appendTo("#detail-doctor");
+<% end %>

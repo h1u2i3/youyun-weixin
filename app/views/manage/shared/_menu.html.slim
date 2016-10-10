@@ -1,0 +1,28 @@
+#manage-sidebar
+  .ui.visible.inverted.vertical.menu
+    .item
+      a.ui.logo.icon.image href="/manage"
+        = image_tag "logo.jpg", size: "80x80"
+    a.item.logout  href="/manage/logout" 退出登录
+    a.item  href="/manage" 情况总览
+    .item
+      header 基础数据
+      .menu
+        a.item href="/manage/baseinfo/doctor" 医生基础信息
+        a.item href="/manage/baseinfo/project" 诊疗标签
+    .item
+      header 用户管理
+      .menu
+        a.item href="/manage/users" 管理用户信息
+        a.item href="/manage/users/detail" 查看用户详情
+    .item
+      header 医生管理
+      .menu
+        a.item href="/manage/predoctors" 新增医生管理
+        a.item href="/manage/doctors" 管理医生信息
+        a.item href="/manage/doctors/detail" 查看医生详情
+        a.item href="/manage/doctors/calenders" 管理医生日程
+        a.item href="/manage/doctors/goods" 管理医生服务
+    a.item href="/manage/appointments" 预约管理
+    a.item href="/manage/appraises" 评论管理
+    a.item href="/manage/comments" 付款管理

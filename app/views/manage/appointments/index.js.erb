@@ -1,0 +1,2 @@
+$("#appointment-container").empty();
+$("<%= j render partial: 'table', locals: {appointments: @appintments} %>").appendTo("#appointment-container");

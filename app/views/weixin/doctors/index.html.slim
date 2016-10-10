@@ -1,0 +1,37 @@
+= weixin_header "浏览医生"
+= weixin_content do
+
+  .dc-search
+    header 查找
+    = form_tag(search_weixin_doctors_path)
+      = text_field_tag :name, nil, placeholder: "请输入姓名"
+      = submit_tag "搜索"
+  - cache("tags:#{@tags.count}:#{@tags.maximum(:updated_at)}") do
+    .dc-tag
+      header 按服务内容
+      - if @tags.any?
+        = weixin_table @tags do |tag|
+          = tag.name
+      - else
+        = "暂时没有服务内容"
+  - cache("departments:#{@departments.count}:#{@departments.maximum(:updated_at)}") do
+    .dc-dep
+      header 按科室
+      - if @departments.any?
+        = weixin_table @departments do |department|
+          = department.name
+      - else
+        = "暂时没有科室信息"
+  - cache("skills:#{@skills.count}:#{@skills.maximum(:updated_at)}") do
+    .dc-skill
+      header 按擅长
+      - if @skills.any?
+        = weixin_table @skills do |skill|
+          = skill.name.truncate(6)
+      - else
+        = "暂时没有擅长内容"
+      
+= render partial: 'weixin/shared/footer', locals: { active: :search }
+
+  
+    

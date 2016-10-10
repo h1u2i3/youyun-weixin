@@ -1,0 +1,28 @@
+= weixin_header "购买服务", weixin_doctor_path(@doctor)
+= weixin_content do
+  = render partial: 'intro'
+  = render partial: 'form', locals: { appointment: @appointment }    
+.weui_dialog_confirm#load-case[style='display:none;']
+  .weui_mask
+  .weui_dialog
+    .weui_dialog_hd
+      strong.weui_dialog_title 提示
+    .weui_dialog_bd 是否要导入您上次就诊时填写的资料?
+    .weui_dialog_ft
+      a[href="javascript:;" class="weui_btn_dialog default"] 取消
+      a[href="javascript:;" class="weui_btn_dialog primary"] 确定
+
+- if @last_appointment
+  javascript:
+    $(document).ready(function() {
+      dialog = $('#load-case')
+      dialog.show();
+      dialog.find('.weui_btn_dialog.primary').on('click', function(){
+        dialog.hide();
+        $('#appointment_cellphone').val("#{@last_appointment.cellphone}");
+        $('textarea').html("#{@last_appointment.case.symptom}");
+      });
+      dialog.find('.weui_btn_dialog.default').on('click', function(){
+        dialog.hide();
+      });
+    });

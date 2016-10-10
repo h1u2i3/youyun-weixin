@@ -1,0 +1,16 @@
+h1
+  = doctor.name
+p
+  | 已有
+  = doctor.appointments.size
+  | 个预约
+p
+  | 已有
+  = doctor.comments.size
+  | 条评价
+p
+  | 提供服务类型：
+  = doctor.goods
+p
+  | 日程安排：
+  = doctor.calenders

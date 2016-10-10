@@ -1,0 +1,7 @@
+$('.ui.modal').modal('hide');
+$(".ui.dimmer.modals.page").empty();
+$('.ui.button.appointment').removeClass('active');
+$("#appointment-container").empty();
+$("<%= j render partial: 'table' %>").appendTo("#appointment-container");
+$("<%= j render partial: 'success' %>").appendTo('#success-modal');
+$('#success-modal .ui.modal').modal('show');

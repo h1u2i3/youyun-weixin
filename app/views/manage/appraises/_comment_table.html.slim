@@ -1,0 +1,25 @@
+table.ui.selectable.striped.table
+  thead
+    tr.center.aligned
+      th.two.wide 用户名
+      th.two.wide 医生名
+      th.two.wide 服务内容
+      th.eight.wide 评论
+      th.three.wide 操作
+  tbody
+    - @resources.each do |comment|
+      tr.center.aligned id="comment-#{comment.id}"
+        td
+          = comment.user.nickname if comment.user
+        td
+          = comment.doctor.name
+        td
+          = comment&.appointment&.service_name
+        td
+          = comment.content
+        td.center.aligned
+          = link_to "屏蔽该评论", ban_manage_appraise_path(type: @type, id: comment.id), method: :post, remote: true, data: { confirm: "你确定要屏蔽该预约么？"}, class: "ui button red #{'disabled' unless comment.approved? }"
+  tfoot
+    tr
+      th colspan="5"
+        = paginate @resources

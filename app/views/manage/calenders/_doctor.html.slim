@@ -1,0 +1,29 @@
+.ui.two.column.grid
+  .column
+    = image_tag "logo.jpg", size: "80x80"
+    h1#name
+      | 姓名:&nbsp;&nbsp;
+      = @doctor.name
+    h4#openid.ui.label
+      = @doctor.openid
+  .column#doctor-description
+    p
+      = simple_format(@doctor.description)
+.ui.three.column.centered.grid
+  .column
+    = link_to '上一月', calenders_manage_doctors_path(openid: @doctor.openid, date: @date.last_month), remote: true, class: 'ui blue button'
+  .column
+    h2.calender-month
+      = @date.strftime('%Y年%m月')
+  .column
+    = link_to '下一月', calenders_manage_doctors_path(openid: @doctor.openid, date: @date.next_month), 
+    remote: true, class: 'ui blue button'
+= calendar @date do |date|
+  .ui.relaxed.divided.list.calender-detail
+    .item
+      p
+        = date.strftime('%m月%d日')
+    - if @calenders[date.strftime('%Y-%m-%d')]
+      = render partial: 'label_item', collection: @calenders[date.strftime('%Y-%m-%d')], as: :calender
+  .add-calender id="#{date.strftime('%Y-%m-%d')}"
+#add-calender-model

@@ -1,0 +1,29 @@
+.ui.large.breadcrumb#manage-content-nav
+  a.section 管理平台
+  i.right.chevron.icon.divider
+  a.section 预约管理
+.ui.divider
+
+#manage-appointment-body
+  .ui.grid
+    .ui.five.wide.column
+      .ui.action.left.icon.input
+        i.search.icon
+        input#search-appointment-value type="text" placeholder="请输入订单编号"
+        .ui.teal.button#search-appointment-button 查找订单
+    .ui.seven.wide.column
+      .ui.buttons
+        = link_to "待付款", manage_appointments_path(status: 'prepay'), class: 'ui button appointment', remote: true
+        = link_to "已付款", manage_appointments_path(status: 'payed'), class: 'ui button appointment', remote: true
+        = link_to "已取消", manage_appointments_path(status: 'canceled'), class: 'ui button appointment', remote: true
+        = link_to "申请退款", manage_appointments_path(status: 'refunding'), class: 'ui button appointment', remote: true
+        = link_to "已退款", manage_appointments_path(status: 'refunded'), class: 'ui button appointment', remote: true
+        = link_to "已完成", manage_appointments_path(status: 'finished'), class: 'ui button appointment', remote: true
+        = link_to "待评价", manage_appointments_path(status: 'commenting'), class: 'ui button appointment', remote: true
+  #appointment-container
+  #appointment-modal
+  #appointment-form-modal
+  #error-modal
+  #success-modal
+        
+      

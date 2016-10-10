@@ -1,0 +1,111 @@
+.new-rating {
+  text-align: center;
+  width: 100%;
+
+  .rating-logo {
+    margin: 20px auto;
+  }
+
+  .rating-message {
+    font-size: 25px;
+    margin: 20px auto;
+  }
+
+  dl {
+    width: 70%;
+    margin: 0;
+    margin: 10px auto;
+
+    dt {
+      @include calc("width", "40% - 20px");
+      float: left;
+      text-align: right;
+      font-size: $large-font-size;
+      line-height: 30px;
+      height: 30px;
+      margin-right: 20px;
+    }
+
+    dd {
+      width: 60%;
+      float: right;
+      text-align: left;
+      height: 30px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+
+    .clearfix {
+      @include clearfix;
+    }
+
+    @include clearfix;
+  }
+
+  .rating-action {
+    width: 60%;
+    margin: 0;
+    margin: 10px auto;
+  }
+
+  @include clearfix;
+}
+
+.thank {
+  text-align: center;
+  .thank-icon {
+    margin: 20px auto;
+  }
+  .thank-hint {
+    font-size: 30px;
+    margin: 20px auto;
+  }
+  .thank-message {
+    font-size: $large-font-size;
+    margin: 30px auto;
+  }
+  .thank-action {
+    width: 60%;
+    margin: 30px auto;
+  }
+}
+
+.rating-list {
+  min-height: 100px;
+
+  p {
+    font-size: 14px;
+    color: rgba($black-color, .8);
+
+    b {
+      margin-right: 5px;
+    }
+  }
+
+  dl {
+    width: 150px;
+    position: absolute;
+    @include calc("top", "50% - 36px");
+    right: 20px;
+
+    dt {
+      @include calc("width", "45% - 10px");
+      font-size: 13px;
+      line-height: 22px;
+      float: left;
+      text-align: right;
+      margin-top: 2px;
+      margin-right: 10px;
+    }
+    dd {
+      width: 55%;
+      float: right;
+      text-align: left;
+
+      .icon {
+        font-size: 10px !important;
+      }
+    }
+    @include clearfix;
+  }
+}

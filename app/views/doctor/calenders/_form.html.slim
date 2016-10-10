@@ -1,0 +1,46 @@
+= form_for [:doctor, @calender], remote: true do |f|
+  = f.hidden_field :doctor_id
+  .weui_cells_title
+    | 选择地点或者新增
+  .weui_cells.weui_cells_form
+    .weui_cell.weui_cell_select
+      .weui_cell_bd.weui_cell_primary
+        = f.collection_select :calender_place, current_doctor.places, :address, :address, {}, { class: "weui_select" }
+    .weui_cell
+      .weui_cell_hd
+        label.weui_label
+          | 新增
+      .weui_cell_bd.weui_cell_primary
+        = text_field_tag :address, "", placeholder: '在这里添加新的地址',class: 'weui_input'
+  .weui_cells_title
+    | 仔细填写起止时间
+  .weui_cells.weui_cells_form
+    .weui_cell
+      .weui_cell_hd
+        label.weui_label
+          | 开始
+      .weui_cell_bd.weui_cell_primary
+        = f.datetime_select :calender_start_time, {}, { class: 'weui_input input-mini'}
+    .weui_cell
+      .weui_cell_hd
+        label.weui_label
+          | 结束
+      .weui_cell_bd.weui_cell_primary
+        = f.datetime_select :calender_end_time, {}, { class: 'weui_input input-mini' }
+  .weui_cells_title
+    | 确认当天诊疗数量
+  .weui_cells.weui_cells_form
+    .weui_cell
+      .weui_cell_hd
+        label.weui_label
+          | 预约量
+      .weui_cell_bd.weui_cell_primary
+        = f.text_field :calender_capacity, class: 'weui_input', placeholder: '请输入您当天准备要接诊的数量'
+  .weui_cells_tips 确定无误请提交
+  .weui_btn_area
+    - if @calender.id
+      = f.submit "更改日程", class: 'weui_btn weui_btn_primary'
+      = link_to "删除日程", "", class: "weui_btn weui_btn_warn", id: 'calender-delete', data: { calender: @calender.id }
+    - else
+      = f.submit "添加日程", class: 'weui_btn weui_btn_primary'
+      = link_to "取消新增", cancel_doctor_calenders_path, id: 'calender-cancel', class: 'weui_btn weui_btn_warn', remote: true

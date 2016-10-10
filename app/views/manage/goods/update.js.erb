@@ -1,0 +1,3 @@
+$("#good-<%= @good.id %>").empty();
+$("<%= j render partial: 'good_card_content', locals: { good: @good } %>").appendTo("#good-<%= @good.id %>");
+$("#good-form").empty();

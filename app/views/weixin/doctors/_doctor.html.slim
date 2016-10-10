@@ -1,0 +1,32 @@
+.weui_article.doctor-content[data-channel="notices" data-doctor="#{doctor.id}"]
+  h1.doctor-content--name
+    = doctor.name
+  section
+    h3 擅长疾病
+    .doctor-content--skills
+      - doctor.skills.each do |skill|
+        .doctor-cell--skill-label
+          = skill.name
+  section
+    h3 详细介绍
+    .doctor-content--description
+      = simple_format doctor.description
+= render partial: 'good', locals: { doctor: doctor}
+.weui_cells_title 就诊评价
+.weui_cells
+  - if ratings.any?
+    = render partial: 'rating', collection: ratings, as: :rating
+  - else
+    .weui_cell.doctor-rating-list
+      .weui_cell_bd.weui_cell_primary.rating--detail
+        p 暂未收到评分
+.weui_cells_title 疗效评价
+.weui_cells
+  - if comments.any?
+    = render partial: 'comment', collection: comments, as: :comment
+  - else
+    .weui_cell.doctor-rating-list
+      .weui_cell_bd.weui_cell_primary.comment--detail
+        p 暂未收到疗效评价
+#actionSheet_wrap
+  = render partial: 'calender', locals: { calenders: calenders }

@@ -1,0 +1,38 @@
+= form_for [:doctor, @good], remote: true do |f|
+  = f.hidden_field :doctor_id
+  = f.hidden_field :published,  value: true
+  .weui_cells_title 新增服务内容
+  .weui_cells.weui_cells_form
+    .weui_cell
+      .weui_cell_hd
+        label.weui_label
+          | 服务名
+      .weui_cell_bd.weui_cell_primary
+        = f.text_field :name, placeholder: '输入服务的名字，可以是专门针对哪一种病症',class: 'weui_input'
+    .weui_cell
+      .weui_cell_hd
+        label.weui_label
+          | 价格
+      .weui_cell_bd.weui_cell_primary
+        = f.text_field :price, placeholder: '输入价格，最多两位小数',class: 'weui_input'
+  .weui_cells_title 为服务内容选择标签
+  .weui_cells.weui_cells_checkbox
+    = f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b|
+      = b.label class:"weui_cell weui_check_label" do
+        = content_tag "div", class:"weui_cell_hd" do
+          = b.check_box(class: "weui_check") + content_tag("i", "", class: "weui_icon_checked")
+        = content_tag "div", class:"weui_cell_bd weui_cell_primary" do
+          = content_tag("p", b.text)
+  .weui_cells_title 简单描述一下提供服务的内容
+  .weui_cells.weui_cells_form
+      .weui_cell
+          .weui_cell_bd.weui_cell_primary
+              = f.text_area :description, class: 'weui_textarea', placeholder: "请输入关于服务的描述", rows: 5
+  .weui_cells_tips 确定无误请提交
+  .weui_btn_area
+    - if @good.id
+      = f.submit "保存更改", class: "weui_btn weui_btn_primary"
+      = link_to "取消更改", cancel_doctor_goods_path, remote: true, class: "weui_btn weui_btn_warn"
+    - else
+      = f.submit "新增服务", class: "weui_btn weui_btn_primary"
+      = link_to "取消新增", cancel_doctor_goods_path, remote: true, class: "weui_btn weui_btn_warn"

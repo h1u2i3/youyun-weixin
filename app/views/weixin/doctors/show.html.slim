@@ -1,0 +1,112 @@
+= weixin_header "医生详情", weixin_root_path
+= weixin_content do
+  - cache(@doctor.updated_at) do
+    .weui_article.doctor-content[data-channel="notices" data-doctor="#{@doctor.id}"]
+      h1.doctor-content--name
+        = @doctor.name
+      - cache(@doctor.skills) do
+        section
+          h3 擅长疾病
+          .doctor-content--skills
+            - @doctor.skills.each do |skill|
+              .doctor-cell--skill-label
+                = skill.name
+      section
+        h3 详细介绍
+        .doctor-content--description
+          = simple_format @doctor.description
+  .weui_cells_title 提供的服务
+  .weui_cells[data-doctor-goods="#{@doctor.id}"]
+    - if @doctor.goods.any?
+      - @doctor.goods.each do |good|
+        .weui_cell.good
+          .weui_cell_bd.weui_cell_primary 
+            p
+              = good.name
+          .weui_cell_ft
+            a[href="javascript:;" class="weui_btn weui_btn_primary good--buy-button" data-doctor="#{@doctor.id}" data-good="#{good.id}"] 购买服务
+          .good--price
+            | ￥
+            = good.price
+          .good--description
+            p
+              = good.description
+    - else
+      .weui_cell.good
+        .weui_cell_bd.weui_cell_primary 
+          p 暂时没有提供服务
+  - cache(@doctor.ratings.any? ? "ratings:#{@doctor.id}:#{@doctor.ratings.map(&:updated_at).max}" : 'ratings') do
+    .weui_cells_title
+      | 就诊评分
+      = "(#{@doctor.ratings.size}条)" if @doctor.ratings.any?
+    .weui_cells
+      - if @doctor.ratings.any?
+        .weui_cell.doctor-rating-list
+          .weui_cell_bd.weui_cell_primary
+            ul
+              li
+                span.title 服务态度 <br/>
+                span.rating-score
+                  = "#{@doctor.ratings.average(:attitude).to_f.round(1)}"
+                | /
+                span.max-score 5.0
+              li
+                span.title 专业知识 <br/>
+                span.rating-score
+                  = "#{@doctor.ratings.average(:professional).to_f.round(1)}"
+                | /
+                span.max-score 5.0
+              li
+                span.title 满意程度 <br/>
+                span.rating-score
+                  = "#{@doctor.ratings.average(:statisfication).to_f.round(1)}"
+                | /
+                span.max-score 5.0
+      - else
+        .weui_cell.doctor-rating-list
+          .weui_cell_bd.weui_cell_primary.rating--detail
+            p 暂未收到评分
+            
+  - cache(@doctor.comments.any? ? "comments:#{@doctor.id}:#{@doctor.comments.map(&:updated_at).max}" : 'comments' ) do
+    .weui_cells_title
+      | 疗效评价
+      = "(#{@doctor.comments.size}条)" if @doctor.comments.any?
+    .weui_cells
+      - if @doctor.comments.any?
+        - @doctor.comments.order(created_at: :desc).each do |comment|
+          - cache(comment) do
+            .weui_cell.doctor-rating-list
+              .weui_cell_bd.weui_cell_primary
+                p
+                  b 
+                    = "#{comment.user.nickname}的评价:"
+                  = comment.content
+      - else
+        .weui_cell.doctor-rating-list
+          .weui_cell_bd.weui_cell_primary.comment--detail
+            p 暂未收到疗效评价
+  #actionSheet_wrap
+    .weui_mask_transition#mask
+    .weui_actionsheet#calender-actionsheet
+      .weui_actionsheet_menu
+        h3 请选择具体哪一天
+        p.calender--explain 红色圆圈内的数字表示当天诊疗的剩余数量
+        = weixin_calender do |date|
+          p.calender--date data-day="#{date.strftime('%Y-%m-%d')}"
+            = date.strftime('%d')
+            - if @calenders[date.strftime('%Y-%m-%d')] && @calenders[date.strftime('%Y-%m-%d')].sum(&:available_capacity_count) > 0
+              p.capacity.capacity__enable
+                = @calenders[date.strftime('%Y-%m-%d')].sum(&:available_capacity_count)
+            - else
+              - if @calenders[date.strftime('%Y-%m-%d')]
+                p.capacity.capacity__disable
+                  = @calenders[date.strftime('%Y-%m-%d')].sum(&:calender_capacity)
+        .weui_actionsheet_action
+          .weui_actionsheet_cell.buy-appointment.buy-appointment__disable#buy-appointment 确定
+          .weui_actionsheet_cell#actionsheet_cancel 取消
+  
+coffee:
+  
+  $ ->
+    $('.ui.rating').rating('disable')
+  

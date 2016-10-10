@@ -1,0 +1,13 @@
+<% if @rating.errors.any? %>
+  $('.error-message').remove();
+  $("textarea[name='content']").removeClass('weui_cell_warn');
+  $("<%= j render partial: 'error', locals: { message: @rating.errors.full_messages.join(" ") } %>").appendTo(".page .bd");
+  var tooltips = $('.js_tooltips');
+  if (tooltips.css('display') == 'none') {
+    $("textarea[name='content']").addClass('weui_cell_warn');
+    tooltips.show();
+    setTimeout(function () {
+        tooltips.hide();
+    }, 2000);
+  }
+<% end %>

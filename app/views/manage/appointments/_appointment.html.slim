@@ -1,0 +1,29 @@
+.ui.modal
+  i.close.icon
+  .header
+    = "订单详情 ##{@appointment.appoint_unique_number}"
+  .content
+    .ui.list
+      .item
+        .header ID:
+        = @appointment.id
+      .item
+        .header 服务内容:
+        = @appointment.service_name
+      .item
+        .header 服务地点:
+        = @appointment.calender_place
+      .item
+        .header 服务时间:
+        = @appointment.calender_day + @appointment.calender_time
+      .item
+        .header 症状描述:
+        = @appointment&.case&.symptom
+      .item
+        .header 购买时间:
+        = @appointment.created_at
+  .actions
+    = link_to "编辑", edit_manage_appointment_path(@appointment), remote: true, data: { confirm: "你确定要编辑该预约么？"}, class: "ui mini button green #{'disabled' if (!@appointment.ready? ||  @appointment.refunding? )}"
+    = link_to "删除", manage_appointment_path(@appointment), method: :delete, remote: true, data: { confirm: "你确定要删除该预约么？删除后不可恢复！"}, class: "ui mini button red #{'disabled' if ( @appointment.refunding? || @appointment.payed? ) }"
+    = link_to "退款", refund_manage_appointment_path(@appointment), method: :post, remote: true, data: { confirm: "你确定要删除该预约么？删除后不可恢复！"}, class: "ui mini button green #{'disabled' unless @appointment.ready? }"
+    = link_to "提醒", remind_manage_appointment_path(@appointment), remote: true, data: { confirm: "你确定需要提醒该用户进行评价么？"}, class: "ui mini button green #{'disabled' unless @appointment.commenting?  }"

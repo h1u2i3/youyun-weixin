@@ -1,0 +1,24 @@
+.weui_cell.rating-list
+  .weui_cell_bd.weui_cell_primary
+    p
+      b 医生姓名:
+      = rating.doctor.name
+    p
+      b 购买服务:
+      = rating.appointment.service_name
+    p
+      b 服务时间:
+      = rating.appointment.created_at.strftime('%Y年%m月%d日')
+    p
+      b 订单编号:
+      = rating.appointment.appoint_unique_number
+    dl
+      dt 服务态度
+      dd
+        .ui.mini.star.rating[data-rating="#{rating.attitude}" data-max-rating="5"]
+      dt 专业知识
+      dd
+        .ui.mini.star.rating[data-rating="#{rating.professional}" data-max-rating="5"]
+      dt 满意程度
+      dd
+        .ui.mini.star.rating[data-rating="#{rating.statisfication}" data-max-rating="5"]

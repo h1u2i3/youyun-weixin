@@ -1,0 +1,15 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="UTF-8"]
+    meta[name="viewport" content="initial-scale=1, maximum-scale=1"]
+    / script[src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"]
+    = javascript_include_tag 'doctor'
+    title
+      | 示例站点平台
+    = stylesheet_link_tag 'doctor', media: 'all'
+    = csrf_meta_tags
+  body[ontouchstart]
+    .page
+      = yield
+    = yield :footer if content_for?(:footer)

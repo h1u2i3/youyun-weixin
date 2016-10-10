@@ -1,0 +1,15 @@
+- if doctor.goods.any?
+  - doctor.goods.each do |good|
+    .weui_cell.good
+      .weui_cell_bd.weui_cell_primary 
+        p
+          = good.name
+      .weui_cell_ft
+        a[href="javascript:;" class="weui_btn weui_btn_primary good--buy-button" data-doctor="#{doctor.id}" data-good="#{good.id}"] 购买服务
+      .good--price
+        | ￥
+        = good.price
+- else
+  .weui_cell.good
+    .weui_cell_bd.weui_cell_primary 
+      p 暂时没有提供服务

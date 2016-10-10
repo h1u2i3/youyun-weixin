@@ -1,0 +1,15 @@
+<% if @good.errors.any? %>
+  $('.error-message').remove();
+  $(".weui_cell").removeClass('weui_cell_warn');
+  <% @good.errors.keys.each do |k|%>
+    $("input[name='good[<%= k %>]']").parent().parent().addClass('weui_cell_warn');
+  <% end %>
+  $("<%= j render partial: 'error', locals: { message: @good.errors.full_messages.join(" ") } %>").appendTo(".page .bd");
+  var tooltips = $('.js_tooltips');
+  if (tooltips.css('display') == 'none') {
+    tooltips.show();
+    setTimeout(function () {
+        tooltips.hide();
+    }, 2000);
+  }
+<% end %>

@@ -1,0 +1,4 @@
+= weixin_header @title, weixin_doctors_path
+= weixin_content do
+  - cache([doctors, title]) do
+    = weixin_doctor_list doctors, title

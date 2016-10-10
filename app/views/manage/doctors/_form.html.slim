@@ -1,0 +1,11 @@
+.ui.two.column.grid
+  .column
+    = simple_form_for [:manage, doctor], remote: true do |f|
+      = f.input :name
+      = f.input :openid
+      = f.association :hospital, prompt: "选择医院", input_html: { class: 'ui dropdown' }
+      = f.association :grade, prompt: "选择职称", input_html: { class: 'ui dropdown' }
+      = f.association :departments, input_html: { class: 'ui dropdown' }
+      = f.association :skills, input_html: { class: 'ui dropdown' }
+      = f.input :description
+      = f.button :submit, class: 'fluid'

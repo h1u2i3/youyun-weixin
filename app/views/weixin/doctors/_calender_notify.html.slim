@@ -1,0 +1,16 @@
+.weui_actionsheet_menu
+  h3 请选择具体哪一天
+  p.calender--explain 红色圆圈内的数字表示当天诊疗的剩余数量
+  = weixin_calender do |date|
+    p.calender--date data-day="#{date.strftime('%Y-%m-%d')}"
+      = date.strftime('%d')
+      - if calenders[date.strftime('%Y-%m-%d')] && calenders[date.strftime('%Y-%m-%d')].sum(&:available_capacity_count) > 0
+        p.capacity.capacity__enable
+          = calenders[date.strftime('%Y-%m-%d')].sum(&:available_capacity_count)
+      - else
+        - if calenders[date.strftime('%Y-%m-%d')]
+          p.capacity.capacity__disable
+            = calenders[date.strftime('%Y-%m-%d')].sum(&:calender_capacity)
+  .weui_actionsheet_action
+    .weui_actionsheet_cell.buy-appointment.buy-appointment__disable#buy-appointment 确定
+    .weui_actionsheet_cell#actionsheet_cancel 取消

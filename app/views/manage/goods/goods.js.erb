@@ -1,0 +1,6 @@
+$("#doctor-good").empty();
+<% if @doctor %>
+  $("<%= j render partial: 'doctor' %>").appendTo("#doctor-good");
+<% else %>
+  $("<%= j render 'nodoctor' %>").appendTo("#doctor-good");
+<% end %>

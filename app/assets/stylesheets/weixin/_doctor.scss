@@ -1,0 +1,328 @@
+.doctor-cell {
+
+  .doctor-cell--name{
+    margin: 5px 0;
+    font-size: $large-font-size;
+    color: rgba($black-color, .75);
+  }
+
+  .doctor-cell--hospital {
+    font-size: $medium-font-size;
+    color: rgba($black-color, .6);
+  }
+
+  .doctor-cell--description {
+    margin-top: 5px;
+    font-size: $small-font-size;
+    color: rgba($black-color, .6);
+  }
+
+  .doctor-cell--skills {
+    margin: 5px 0;
+    font-size: $small-font-size;
+    font-weight: normal;
+  }
+}
+
+.doctor-cell--skill-label {
+  color: $white-color;
+  background-color: $red-color;
+  width: auto;
+  padding: 0 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  display: inline-block;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.doctor-content {
+  padding-top: 10px;
+
+  .doctor-content--name {
+    font-size: $super-font-size;
+    text-align: center;
+    color: $doctor-content-name-color;
+  }
+
+  .doctor-content--skills {
+    font-size: $small-font-size;
+  }
+
+  .doctor-content--description {
+    font-size: $small-font-size
+  }
+}
+
+.good {
+  display: block;
+
+  .good--price {
+    position: absolute;
+    color: $red-color;
+    text-align: center;
+    border-radius: 10px;
+    padding: 6px;
+    top: 7px;
+    right: 120px;
+    font-size: $large-font-size;
+    font-weight: normal;
+  }
+
+  .good--description {
+    display: inline-block !important;
+    width: 100%;
+    font-size: 14px;
+    color: rgba(black, .56);
+    margin-top: 10px;
+  }
+
+  .good--buy-button {
+    top: 7px;
+    right: 15px;
+    position: absolute;
+    font-size: 14px;
+  }
+}
+
+table {
+  text-align: center;
+  width: 100%;
+  color: rgba($black-color, .7);
+  margin-top: 10px;
+
+  td,
+  th {
+    position: relative;
+    height: 60px;
+    border: 2px $background-color solid;
+
+    &:first-child {
+      border-left: none;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  th {
+    height: 20px;
+    border-right: none;
+    border-left: none;
+  }
+
+  td {
+    vertical-align: top;
+    padding-top: 5px;
+    padding-left: 5px;
+
+    p {
+      text-align: left;
+      margin-bottom: 0;
+      color: rgba($black-color, 0.6);
+    }
+  }
+}
+
+.weui_actionsheet {
+  background-color: $background-color;
+
+  h3 {
+    text-align: center;
+    color: rgba($black-color, .7);
+  }
+
+  .weui_actionsheet_cell {
+    float: left;
+    width: 50%;
+    border: none;
+    border-top: 2px $background-color solid;
+    background-color: $white-color;
+
+    &:before {
+      border-top: none;
+    }
+
+    &.buy-appointment {
+      background-color: rgba($primary-color, .8);
+      color: $white-color;
+
+      &.buy-appointment__disable {
+        color: rgba($white-color, .5);
+        background-color: rgba($primary-color, .5);
+      }
+
+    }
+  }
+}
+
+p.capacity {
+  position: absolute;
+  margin: 0;
+  right: 5px;
+  font-size: 16px;
+  line-height: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  color: $white-color;
+  text-align: center;
+
+  &.capacity__enable {
+    background-color: $red-color;
+  }
+
+  &.capacity__disable {
+    background-color: rgba($black-color, .7);
+  }
+}
+
+p.calender--explain {
+  text-align: center;
+}
+
+.calender {
+  .calender--day {
+
+  }
+
+  .calender--day__today {
+    p {
+      color: $white-color;
+    }
+    background-color: rgba($primary-color, .3);
+  }
+
+  .calender--day__other-month {
+    background-color: rgba(#de7c23, .3);
+  }
+
+  .calender--day__disable {
+    background-color: $background-color;
+  }
+
+  .calender--day__choosed {
+    p {
+      color: $white-color;
+    }
+    background-color: rgba($red-color, .4);
+  }
+}
+
+.dc-dep,
+.dc-skill,
+.dc-tag {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  header {
+    margin: 0;
+    padding-left: 10px;
+    width: calc(100% - 10px);
+    margin-top: 10px;
+    color: rgba($black-color, .8);
+  }
+
+  ul {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 100%;
+    border-top: 1px #d9d9d9 solid;
+    border-bottom: 1px #d9d9d9 solid;
+    background-color: $white-color;
+
+    li {
+      list-style-type: none;
+      text-align: center;
+      width: 25%;
+      height: 40px;
+      line-height: 40px;
+      float: left;
+      font-size: $small-font-size;
+      color: rgba($black-color, .7);
+    }
+
+    @include clearfix;
+  }
+  @include clearfix;
+}
+
+.dc-search {
+  margin: 10px 0;
+
+  header {
+    margin: 10px 0;
+    padding-left: 10px;
+    @include calc("width", "100% - 10px");
+    margin-top: 10px;
+    color: rgba($black-color, .8);
+  }
+
+  form {
+    float: left;
+    width: 100%;
+    @include clearfix;
+  }
+
+  input[type=text] {
+    @include calc("width", "100% - 120px");
+    padding-left: 20px;
+    float: left;
+    height: 38px;
+    line-height: 38px;
+    border: none;
+    border-radius: 0;
+    border-top: 1px #d9d9d9 solid;
+    border-bottom: 1px #d9d9d9 solid;
+    -webkit-appearance: none;
+  }
+
+  input[type=submit] {
+    width: 100px;
+    float: right;
+    height: 40px;
+    border: none;
+    border-radius: 0;
+    background-color: $primary-color;
+    color: $white-color;
+    font-weight: bold;
+  }
+  @include clearfix;
+}
+
+.doctor-rating-list {
+
+  p {
+    font-size: 14px;
+    color: rgba($black-color, .8);
+
+    b {
+      margin-right: 8px;
+    }
+  }
+
+  ul {
+    text-align: center;
+
+    li {
+      width: 33.33%;
+      float: left;
+
+      span.title {
+        color: rgba($black-color, .7);
+      }
+
+      span.rating-score {
+        font-size: 30px;
+        color: $primary-color;
+      }
+    }
+    @include clearfix;
+  }
+
+}

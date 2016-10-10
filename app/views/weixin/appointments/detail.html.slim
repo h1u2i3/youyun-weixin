@@ -1,0 +1,5 @@
+= weixin_header "订单详情", weixin_appointment_path(@appointment)
+= weixin_content do
+  .apm
+    i.weui_icon_msg.weui_icon_info
+    = render partial: 'detail', locals: {appointment: @appointment}

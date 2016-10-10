@@ -1,0 +1,32 @@
+- if @appointments
+  .ui.negative.message
+    .header 当前用户没有进行过评价
+- else
+  table.ui.striped.padded.table
+    thead
+      tr.center.aligned
+        th.collapsing ID
+        th.collapsing 预约编号
+        th.collapsing 医生姓名
+        th.collapsing 诊疗过程评分
+        th.collapsing 诊疗过程评价
+        th.collapsing 诊疗效果评分
+        th.collapsing 诊疗效果评价
+        th.collapsing 审核
+        th.collapsing 操作
+    tbody
+      - comments.each do |comment|
+        tr.center.aligned id="#{comment.id}"
+          td
+          td
+          td
+          td
+          td
+          td
+          td
+          td
+          td
+    tfoot
+      tr
+        th colspan="9"
+          = paginate comments

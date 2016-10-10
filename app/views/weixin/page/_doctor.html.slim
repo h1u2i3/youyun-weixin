@@ -1,0 +1,13 @@
+.weui_cell.doctor-cell[data-link="#{weixin_doctor_path(doctor)}"]
+  .weui_cell_bd.weui_cell_primary.doctor-cell
+    .doctor-cell--name
+      = doctor.name
+    .doctor-cell--hospital
+      = doctor.hospital.name if doctor.hospital
+    .doctor-cell--description
+      = simple_format doctor.description.truncate(100)
+    .doctor-cell--skills
+      - doctor.skills.each do |skill|
+        .doctor-cell--skill-label
+          = skill.name
+  .weui_cell_ft

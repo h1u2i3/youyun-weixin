@@ -1,0 +1,50 @@
+= weixin_header "工作台"
+= weixin_content do
+
+  .d-overview
+    .d-table
+      .weui_cells
+        .weui_cell
+            ul
+              li
+                a[href="#{doctor_clinics_path}"]
+                  | 接诊<br/>
+                  span.icon.icon-download
+              li
+                a[href="#{doctor_calenders_path}"]
+                  | 日程<br/>
+                  span.icon.icon-edit
+              li
+                a[href="#{doctor_goods_path}"]
+                  | 服务<br/>
+                  span.icon.icon-pages
+    .d-apm
+      .weui_cells_title 预约概览
+      .weui_cells
+        .weui_cell
+          ul
+            li 
+              | 今天<br/>
+              span
+                = current_doctor.appointments.today.size
+            li 
+              | 明天<br/>
+              span
+                = current_doctor.appointments.tomorrow.size
+            li
+              | 本周<br/>
+              span
+                = current_doctor.appointments.this_week.size
+    .d-comment
+      .weui_cells_title 收到的评价
+      .weui_cells
+        .weui_cell
+            ul
+              li
+                | 诊疗评分<br/>
+                span
+                  = current_doctor.ratings.size
+              li
+                | 疗效评价<br/>
+                span
+                  = current_doctor.comments.size

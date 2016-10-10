@@ -1,0 +1,28 @@
+= weixin_header "管理服务", doctor_root_path
+= weixin_content do
+  
+  .good-container
+    .good-list
+      = render partial: 'goods'
+    .good-edit
+      = render partial: 'index'
+    
+
+  .weui_dialog_confirm#good-confirm[style='display:none;']
+    .weui_mask
+    .weui_dialog
+      .weui_dialog_hd
+        strong.weui_dialog_title 提示
+      .weui_dialog_bd 确定要删除该服务么？
+      .weui_dialog_ft
+        a[href="javascript:;" class="weui_btn_dialog default"] 取消
+        a[href="javascript:;" class="weui_btn_dialog primary"] 确定
+      
+  .weui_dialog_alert#good-success[style="display: none;"]
+      .weui_mask
+      .weui_dialog
+          .weui_dialog_hd
+            strong.weui_dialog_title 提示
+          .weui_dialog_bd 操作成功，请在上列表中查看你的服务内容
+          .weui_dialog_ft
+              a.weui_btn_dialog.primary[href="javascript:;"] 确定

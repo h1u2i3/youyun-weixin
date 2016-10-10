@@ -1,0 +1,179 @@
+.buy-appointment--form-tips {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+
+  .buy-appointment--form-tips--doctor-name {
+    margin-top: 10px;
+    font-size: $super-font-size;
+  }
+
+  .buy-appointment--form-tips--good-name {
+    font-size: $large-font-size;
+  }
+
+  .buy-appointment--form-tips--calender-day {
+    font-size: $large-font-size;
+    margin-bottom: 20px;
+  }
+}
+
+.js_tooltips {
+  z-index: 100;
+}
+
+.appointment-detail {
+  margin-top: 20px;
+  text-align: center;
+
+  .appointment-detail--hint {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 40px;
+
+
+  }
+
+  .appointment-detail--number,
+  .appointment-detail--good-name,
+  .appointment-detail--day,
+  .appointment-detail--place,
+  .appointment-detail--time {
+    width: 100%;
+    float: left;
+  }
+
+  header {
+    display: block;
+    width: 35%;
+    float: left;
+    text-align: right;
+    margin-top: 5px;
+    height: inherit;
+  }
+
+  section {
+    @include calc("width", "65% - 20px");
+    height: inherit;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: right;
+    text-align: left;
+    margin-top: 5px;
+  }
+
+  @include clearfix;
+}
+
+.appointment-tips {
+  margin-top: 10px;
+  text-align: center;
+  font-size: $small-font-size;
+
+  i {
+    margin-right: 5px;
+  }
+}
+
+.appointment-action {
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 20px;
+
+  &.canceled {
+    margin-top: 60px;
+  }
+
+  &.finished {
+    margin: 0;
+    width: 100%;
+    margin: 30px auto;
+
+    .weui_btn {
+      width: 60%;
+    }
+  }
+}
+
+.pay-detail {
+  margin-top: 30px;
+  text-align: center;
+  .pay-detail--hint {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+  .pay-detail--message {
+
+  }
+}
+
+.apm {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.apm--hint {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.apm--message {
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+
+.apm--detail {
+  @include calc("width", "100% - 40px");
+  margin: 20px 30px 20px 10px;
+  dt {
+    width: 30%;
+    height: auto;
+    float: left;
+    text-align: right;
+    margin-top: 5px;
+  }
+
+  dd {
+    height: auto;
+    @include calc("width", "70% - 10px");
+    float: right;
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 5px;
+
+  }
+  @include clearfix;
+}
+
+.apm--back {
+  margin-bottom: 20px;
+
+  .weui_btn {
+    width: 60%;
+  }
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.appointment-list {
+  p {
+    font-size: 14px;
+    color: rgba($black-color, .8);
+
+    b {
+      margin-right: 5px;
+    }
+  }
+}
+
+.qrcode {
+  width: 200px;
+  height: 200px;
+  margin: 0;
+  margin: 20px auto;
+}

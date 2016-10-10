@@ -1,0 +1,7 @@
+= weixin_header "支付完成", weixin_profile_path
+= weixin_content do
+  .pay-detail
+    i.weui_icon_msg.weui_icon_safe_success
+    .pay-detail--hint 支付成功
+    .pay-detail--message 您已成功购买，下面是你购买服务的详情:
+    = render partial: 'detail', locals: {appointment: @appointment}

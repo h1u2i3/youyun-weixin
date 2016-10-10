@@ -1,0 +1,5 @@
+$("#add-calender-model").empty();
+$(".ui.dimmer.modals.page").empty();
+$("<%= j render partial: 'form' %>").appendTo("#add-calender-model");
+$('.ui.modal').modal('show');
+$('.ui.dropdown').dropdown();

@@ -1,0 +1,5 @@
+= weixin_header "示例站点服务"
+= weixin_content do
+  - cache(["home", @doctors]) do
+    = weixin_doctor_list @doctors
+= render partial: 'weixin/shared/footer', locals: { active: :index }

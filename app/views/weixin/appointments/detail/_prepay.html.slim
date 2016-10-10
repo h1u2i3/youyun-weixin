@@ -1,0 +1,6 @@
+.appointment-detail
+  i.weui_icon_msg.weui_icon_waiting
+  .appointment-detail--hint
+    | ￥
+    = appointment.service_price
+  = render partial: "weixin/appointments/detail/base", locals: {appointment: appointment}

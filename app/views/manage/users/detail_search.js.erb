@@ -1,0 +1,6 @@
+$('#detail-user').empty();
+<% if @user %>
+  $("<%= j render partial: 'detail', locals: { comments: @comments, appointments: @appointments } %>").appendTo("#detail-user");
+<% else %>
+  $("<%= j render 'nouser' %>").appendTo("#detail-user");
+<% end %>

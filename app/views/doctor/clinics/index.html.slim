@@ -1,0 +1,60 @@
+= weixin_header "接诊", doctor_root_path
+= weixin_content do
+  
+  .clinic
+    .clinic-icon
+      i.weui_icon_msg.weui_icon_info
+    .clinic-message
+      | 请就诊者出示购买的订单<br/>
+      | 并点击下方按钮扫描订单上的二维码
+    .clinic-action
+      button.weui_btn.weui_btn_primary#clinic-scan 点此扫描二维码
+    .weui_extra_area.clinic-manual
+      = link_to '手动完成', manual_doctor_clinics_path
+
+
+javascript:
+  appId = "#{APP_CONFIG['wechat_doctor']['appid']}"
+  timestamp = "#{@result[:timestamp]}"
+  nonceStr = "#{@result[:noncestr]}"
+  signature = "#{@result[:signature]}"
+  jsApiList = ["scanQRCode"]
+  identifyUrl = "#{identify_doctor_clinics_url}"
+    
+coffee:
+  
+  $ ->
+    wx.config
+      debug: false
+      appId: appId
+      timestamp: timestamp
+      nonceStr: nonceStr
+      signature: signature
+      jsApiList: jsApiList
+      
+
+    wx.ready ->
+      window.weixin_ready = true
+
+    wx.error ->
+      window.weixin_ready = false
+      
+    $('.page').on 'click', "#clinic-scan", ->
+      if window.weixin_ready
+        wx.scanQRCode
+          needResult: 1
+          scanType: ["qrCode","barCode"]
+          success: (res) ->
+            result = res.resultStr
+            $.ajax
+              type: 'POST'
+              url: identifyUrl
+              data:
+                message: result
+                
+    return
+              
+          
+          
+          
+          

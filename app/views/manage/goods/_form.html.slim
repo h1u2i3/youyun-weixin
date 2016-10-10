@@ -1,0 +1,7 @@
+= simple_form_for [:manage, @good], remote: true do |f|
+  = f.input :name
+  = f.input :price
+  = f.input :description
+  = f.hidden_field :doctor_id
+  = f.association :tags, input_html: { class: 'ui dropdown' }
+  = f.button :submit, class: 'fluid'

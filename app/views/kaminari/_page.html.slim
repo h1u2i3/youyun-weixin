@@ -1,0 +1,8 @@
+- if page.current?
+  / a.item.active href=url title=("#{t('views.pagination.page.current')} #{page}") data-remote="true"
+  a.item.active href=url title=("#{page}") data-remote="true"
+    = page
+- else
+  / a.item href=url title=("#{t('views.pagination.page.goto')} #{page}") data-remote="true"
+  a.item href=url title=("#{page}") data-remote="true"
+    = page

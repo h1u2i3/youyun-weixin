@@ -1,0 +1,12 @@
+.weui_cell
+  ul.apm-case
+    li
+      | 订单编号: #{apm.appoint_unique_number}
+    li
+      | 购买服务: #{apm.service_name}
+    li
+      | 联系方式: #{apm.cellphone}
+    li
+      | 服务时间: #{apm.calender_day + apm.calender_time}
+    li
+      = apm.case.symptom

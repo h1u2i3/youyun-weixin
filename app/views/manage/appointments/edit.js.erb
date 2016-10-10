@@ -1,0 +1,6 @@
+$('.ui.modal').modal('hide');
+$(".ui.dimmer.modals.page").empty();
+$("#appointment-form-modal").empty();
+$("<%= j render partial: 'form' %>").appendTo("#appointment-form-modal");
+$('#appointment-form-modal .ui.modal').modal('show');
+$('.ui.dropdown').dropdown();

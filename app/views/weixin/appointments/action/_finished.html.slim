@@ -1,0 +1,7 @@
+.appointment-tips
+  i.weui_icon_info_circle
+  | 请对此次服务做出评价。<br/>如有其它需求，请拨打客服电话 <a href="tel:17771735920">17771735920</a> 。
+.appointment-action.finished
+  = primary_link_to("服务评分", new_weixin_appointment_rating_path(appointment)) unless appointment.rating?
+  = primary_link_to("疗效评价", new_weixin_appointment_comment_path(appointment)) if appointment.can_comment?
+  = primary_link_to "查看详情", detail_weixin_appointment_path(appointment)

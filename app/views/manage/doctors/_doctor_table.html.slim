@@ -1,0 +1,30 @@
+table.ui.selectable.striped.table
+  thead
+    tr.center.aligned
+      th.two.wide 姓名
+      th.four.wide 微信OpenID
+      th.two.wide 医院
+      th.two.wide 级别
+      th.two.wide 科室
+      th.four.wide 操作
+  tbody
+    - doctors.each do |doctor|
+      tr.center.aligned id="doctor-#{doctor.id}"
+        td
+          = doctor.name
+        td
+          = doctor.openid
+        td
+          = doctor.hospital.name if doctor.hospital
+        td
+          = doctor.grade.name if doctor.grade
+        td
+          - doctor.departments.each do |department|
+            .ui.purple.horizontal.label
+              | #{department.name}
+        td
+          = render partial: 'table_func', locals: { doctor: doctor }
+  tfoot
+    tr
+      th colspan="6"
+        = paginate doctors

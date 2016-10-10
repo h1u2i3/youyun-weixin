@@ -1,0 +1,62 @@
+= weixin_header "我的示例站点"
+= weixin_content do
+
+  - if @prepay_apms.any?
+    .weui_cells_title 未支付订单
+    .weui_cells.weui_cells_access
+      - @prepay_apms.each do |apm|
+        .weui_cell[data-link="#{weixin_appointment_path(apm)}"]
+          .weui_cell_bd.weui_cell_primary
+            p
+              = apm.service_name
+            p
+              = apm.doctor.name
+          .weui_cell_ft
+  - if @ready_apms.any?
+    .weui_cells_title 未服务订单
+    .weui_cells.weui_cells_access
+      - @ready_apms.each do |apm|
+        .weui_cell[data-link="#{weixin_appointment_path(apm)}"]
+          .weui_cell_bd.weui_cell_primary
+            p
+              = apm.service_name
+            p
+              = apm.doctor.name
+          .weui_cell_ft
+  - if @comment_apms.any?
+    .weui_cells_title 未评价订单
+    .weui_cells.weui_cells_access
+      - @comment_apms.each do |apm|
+        .weui_cell[data-link="#{weixin_appointment_path(apm)}"]
+          .weui_cell_bd.weui_cell_primary
+            p
+              = apm.service_name
+            p
+              = apm.doctor.name
+          .weui_cell_ft
+  .weui_cells_title 我的订单
+  .weui_cells.weui_cells_access
+    .weui_cell[data-link="#{weixin_appointments_path(status: 'finished')}"]
+      .weui_cell_bd.weui_cell_primary
+        p 已完成订单
+      .weui_cell_ft
+    .weui_cell[data-link="#{weixin_appointments_path(status: 'canceled')}"]
+      .weui_cell_bd.weui_cell_primary
+        p 已取消订单
+      .weui_cell_ft
+    .weui_cell[data-link="#{weixin_appointments_path(status: 'refunded')}"]
+      .weui_cell_bd.weui_cell_primary
+        p 已退款订单
+      .weui_cell_ft
+  .weui_cells_title 我的评价
+  .weui_cells.weui_cells_access
+    .weui_cell[data-link="#{weixin_ratings_path}"]
+      .weui_cell_bd.weui_cell_primary
+        p 服务评分
+      .weui_cell_ft
+    .weui_cell[data-link="#{weixin_comments_path}"]
+      .weui_cell_bd.weui_cell_primary
+        p 疗效评价
+      .weui_cell_ft
+
+= render partial: 'weixin/shared/footer', locals: { active: :mine }

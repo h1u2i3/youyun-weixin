@@ -1,0 +1,6 @@
+$('#manage-user-table').empty();
+<% if @users.empty? %>
+  $("<%= j render 'nouser' %>").appendTo("#manage-user-table");
+<% else %>
+  $("<%= j render partial: 'user_table', locals: { users: @users } %>").appendTo("#manage-user-table");
+<% end %>

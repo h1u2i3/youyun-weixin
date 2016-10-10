@@ -1,0 +1,11 @@
+.content.label
+  .header
+    | #{calender.calender_start_time.strftime("%H:%M")}-#{calender.calender_end_time.strftime("%H:%M")}
+    .ui.red.circular.label
+      = calender.calender_capacity
+  .descriptions
+    = calender.calender_place.truncate(10)
+  = link_to '编辑', edit_manage_calender_path(calender), remote: true, class: 'ui blue basic mini button'
+  = link_to_if calender.published, '撤除', publish_manage_calender_path(calender), remote: true, data: { confirm: '是否真的要撤除该用户的此项日程？' }, method: :post, class: 'ui red basic mini button' do
+    = link_to '发布', publish_manage_calender_path(calender), remote: true, method: :post, class: 'ui blue basic mini button'
+  = link_to '删除', manage_calender_path(calender), remote: true, data: { confirm: '是否真的要撤除该用户的此项日程？' }, method: :delete, class: 'ui red basic mini button'

@@ -1,0 +1,11 @@
+footer
+  ul
+    li[class="nm_btn #{ 'active' if active == :index }" data-link="#{weixin_root_path}"]
+      span.icon.icon-home
+      p 示例站点服务
+    li[class="nm_btn #{ 'active' if active == :search }" data-link="#{weixin_doctors_path}"]
+      span.icon.icon-search
+      p 浏览医生
+    li[class="nm_btn #{ 'active' if active == :mine }" data-link="#{weixin_profile_path}"]
+      span.icon.icon-person
+      p 我的示例站点

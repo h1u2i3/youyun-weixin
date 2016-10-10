@@ -1,0 +1,6 @@
+window.App = {};
+<% if Rails.env == 'development' %>
+  App.cable = Cable.createConsumer("ws://weixin.local.me:3000/cable");
+<% else %>
+  App.cable = Cable.createConsumer("ws://weixin.example.com/cable");
+<% end %>

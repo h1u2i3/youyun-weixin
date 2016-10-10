@@ -1,0 +1,5 @@
+$("#doctor-notice").empty()
+$("#doctor-form").empty()
+$("#manage-doctor-table").empty()
+
+$("<%= j render partial: 'single_doctor', locals: { doctor: @doctor } %>").appendTo("#manage-doctor-table");

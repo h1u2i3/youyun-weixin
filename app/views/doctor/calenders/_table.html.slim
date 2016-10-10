@@ -1,0 +1,8 @@
+= weixin_calender do |date|
+  p
+    = date.strftime("%d")
+  - if @calenders.any? && @calenders[date.strftime("%Y-%m-%d")]
+    .capacity[data-day="#{date.strftime("%Y-%m-%d")}"]
+      = @calenders[date.strftime("%Y-%m-%d")].sum(&:calender_capacity)
+    .capacity.buyed
+      = @calenders[date.strftime("%Y-%m-%d")].sum(&:deal_appointment)

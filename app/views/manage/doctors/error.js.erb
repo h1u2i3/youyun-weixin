@@ -1,0 +1,6 @@
+if ($('.ui.form').hasClass('error')) {
+  $('.ui.error.message').remove();
+} else {
+  $('.ui.form').addClass('error');
+}
+$("<%= j render 'error' %>").prependTo(".ui.form");

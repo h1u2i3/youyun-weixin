@@ -1,0 +1,15 @@
+WeixinJSBridge.invoke(
+  'getBrandWCPayRequest',
+  <%= raw @params.to_json %>,
+  function (res) {
+    if (res.err_msg == "get_brand_wcpay_request:ok") {
+      window.location = "<%= status_weixin_appointment_path(@appointment) %>"
+    } else if (res.err_msg == "get_brand_wcpay_request:cancel") {
+      window.location = "<%= weixin_profile_path %>"
+    } else if (res.err_msg == "get_brand_wcpay_request:fail") {
+      alert('系统错误');
+    } else {
+      alert('未知错误');
+    }
+  }
+);

@@ -1,0 +1,6 @@
+.ui.error.message
+  .header 
+    | 表单有如下错误, 请核对后再提交。
+  - @calender.errors.full_messages.each do |message|
+    p
+      = message

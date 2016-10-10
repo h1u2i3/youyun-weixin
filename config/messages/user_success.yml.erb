@@ -1,0 +1,19 @@
+template_id: "gxuNXdC_sS-mQK6QMGmlWbT7ilIH3K0SUmdcfPIR2Y4"
+url: <%= appointment_url %>
+topcolor: "#FF0000"
+data:
+  first:
+    value: <%= "您好，你购买的#{ doctor.name }的#{ appointment.service_name }服务已经成功。" %>
+    color: "#0A0A0A"
+  keyword1:
+    value: <%= "#{appointment.appoint_unique_number}" %>
+    color: "#173177"
+  keyword2:
+    value: <%= "#{appointment.service_price}" %>
+    color: "#173177"
+  keyword3:
+    value: <%= "#{appointment.created_at.strftime("%Y年%m月%d日 %H:%M:%S")}" %>
+    color: "#173177"
+  remark:
+    value: <%= "请于#{appointment.calender_day}#{appointment.calender_time}到#{appointment.calender_place}候诊，并保持手机号#{appointment.cellphone}畅通。如有其它疑问请拨打客服电话。" %>
+    color: "#FF0000"

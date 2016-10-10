@@ -1,0 +1,24 @@
+.appointment-detail--number
+  header 订单编号:
+  section
+    = appointment.appoint_unique_number
+.appointment-detail--good-name
+  header 购买服务:
+  section
+    = appointment.service_name
+.appointment-detail--day
+  header 服务日期:
+  section
+    = appointment.calender_day
+.appointment-detail--place
+  header 服务地点:
+  section
+    = appointment.calender_place
+.appointment-detail--time
+  header 服务时间:
+  section
+    = appointment.calender_time
+.appointment-detail--buy-time
+  header 购买时间:
+  section
+    = appointment.created_at.strftime("%Y年%m月%d日%H:%M:%S")

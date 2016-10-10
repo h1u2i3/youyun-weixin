@@ -1,0 +1,16 @@
+.ui.modal
+  i.close.icon
+  .header
+    = "订单改签 ##{@appointment.appoint_unique_number}"
+  .content
+    .ui.icon.message
+      i.inbox.icon
+      .content
+        .header 注意事项
+        p 
+          | 1. 直接选择该医生其它的预约时间即可
+          <br/>
+          | 2. 修改成功后，平台会给该用户发送一条消息
+    = simple_form_for [:manage, @appointment], remote: true, html: { id: "manage-appointment-form" } do |f|
+      = f.input :calender_id, as: :select, collection: @doctor.calenders.available_calender.map { |c| [c.calender_day + " " + c.calender_detail, c.id]}, input_html: { class: 'ui dropdown'}
+      = f.button :submit, class: "ui mini blue button"    

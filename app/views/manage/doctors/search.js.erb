@@ -1,0 +1,9 @@
+$("#doctor-notice").empty()
+$("#doctor-form").empty()
+$("#manage-doctor-table").empty()
+
+<% if @doctors.empty? %>
+  $("<%= j render 'nodoctor' %>").appendTo("#manage-doctor-table");
+<% else %>
+  $("<%= j render partial: 'doctor_table', locals: { doctors: @doctors } %>").appendTo("#manage-doctor-table");
+<% end %>

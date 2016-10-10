@@ -1,0 +1,172 @@
+@import "jquery-ui/core";
+@import 'semantic-ui/globals/all';
+@import 'semantic-ui/elements/all';
+@import 'semantic-ui/collections/all';
+@import 'semantic-ui/views/all';
+@import 'semantic-ui/modules/all';
+
+html.turbolinks-progress-bar::before {
+  background-color: red !important;
+  height: 5px !important;
+}
+
+#manage-login {
+  margin-top: 100px;
+}
+
+#manage-body {
+  width: 100%;
+  height: auto;
+  background-color: rgb(27,28,29);
+}
+
+#manage-sidebar {
+  float: left;
+  padding: 0;
+  margin: 0;
+  width: 15%;
+  height: auto;
+    .ui {
+      width: 100%;
+      border-radius: 0;
+      margin-bottom: 0;
+    }
+}
+
+#manage-content {
+  width: 85%;
+  margin-left: 15%;
+  min-height: 700px;
+  padding: 20px;
+  background-color: rgb(255,255,255);
+   .header {
+     margin-bottom: 15px;
+   }
+}
+
+#manage-content-nav {
+  margin-bottom: 10px !important;
+}
+
+#manage-content-body {
+  margin-top: 20px;
+}
+
+#manage-user-table,
+#detail-user,
+#manage-doctor-table,
+#detail-doctor,
+#manage-appointment-table,
+#manage-comment-table,
+#new-doctor-form,
+#hospital-labels,
+#department-labels,
+#skill-labels,
+#grade-labels,
+#doctor-form,
+#tag-labels,
+#doctor-calender,
+#doctor-good {
+  margin-top: 10px;
+}
+
+#hospital-labels,
+#department-labels,
+#skill-labels,
+#grade-labels {
+  .label {
+    margin-bottom: 5px;
+  }
+}
+
+#new-doctor-button {
+  height: 38px;
+}
+
+td.day {
+  padding-top: 30px !important;
+  height: 200px;
+  vertical-align: top;
+
+  p {
+    float: left;
+  }
+}
+
+.add-calender {
+  height: 40px;
+}
+
+#doctor-calender {
+  .column {
+    text-align: center;
+  }
+}
+
+.add-calender-modal {
+  padding: 50px;
+
+  .button {
+    margin-left: 0 !important;
+  }
+}
+
+.delete-calender {
+  margin-top: 10px !important;
+}
+
+#calender-notice {
+  margin-bottom: 10px;
+}
+
+.calender-detail {
+  .item {
+    .header {
+      margin-bottom: 0 !important;
+    }
+    .button {
+      padding: 5px !important;
+    }
+    .descriptions {
+      font-size: 8px;
+    }
+  }
+}
+
+#calender-doctor-detail {
+  margin-bottom: 50px;
+}
+
+#good-doctor-detail {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+
+  a {
+    margin-top: 10px;
+  }
+
+  #good-form {
+    text-align: left;
+    margin-top: 10px;
+  }
+}
+
+#doctor-good-cards {
+  .fluid {
+    margin-top: 5px;
+  }
+}
+
+#doctor-description {
+  text-align: left !important;
+}
+
+h4#openid {
+  visibility: hidden;
+}
+
+#appointment-container,
+#appraise-container {
+  margin-top: 10px;
+}

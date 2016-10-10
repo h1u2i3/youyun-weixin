@@ -1,0 +1,2 @@
+$("#doctor-<%= @doctor.id %> td:last").empty()
+$("<%= j render partial: 'table_func', locals: { doctor: @doctor } %>").appendTo("#doctor-<%= @doctor.id %> td:last")

@@ -1,0 +1,11 @@
+.clinic-icon
+  i.weui_icon_msg.weui_icon_safe_success
+.clinic-message
+  | 成功识别<br/>
+  = "订单号为#{@appointment.appoint_unique_number}"
+  | <br/>
+  = "该订单的服务日期应为#{@appointment.calender_day}"
+  | <br/>
+  | 如确需提前进行处理，请点击下面按钮。
+.clinic-action
+  button.weui_btn.weui_btn_primary#clinic-confirm[data-appointment="#{@appointment.id}" data-link="#{doctor_clinics_url}"] 点此确定诊疗结束

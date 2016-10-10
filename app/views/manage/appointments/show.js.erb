@@ -1,0 +1,4 @@
+$("#appointment-modal").empty();
+$(".ui.dimmer.modals.page").empty();
+$("<%= j render partial: 'appointment' %>").appendTo("#appointment-modal");
+$('#appointment-modal .ui.modal').modal('show');

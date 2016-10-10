@@ -1,0 +1,21 @@
+@import "bourbon";
+@import "normalize";
+@import "weui";
+@import "weixin/setting";
+@import "ratchet-icons";
+@import "weixin/base";
+@import "rating";
+@import "comment/rating";
+@import "comment/comment";
+
+
+.empty {
+  width: 100%;
+  text-align: center;
+  margin-top: 100px;
+
+  .message {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+}

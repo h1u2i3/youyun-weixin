@@ -1,0 +1,17 @@
+.weui_cells_title 现提供服务
+.weui_cells
+  - if @goods.any?
+    - @goods.each do |good|
+      .weui_cell
+        .weui_cell_bd.weui_cell_primary
+          .good-name
+            = good.name
+          .good-description
+            = good.description
+          .good-price
+            = good.price
+        .weui_cell_ft
+          = link_to "编辑", edit_doctor_good_path(good), remote: true, class: "weui_btn weui_btn_primary"
+  - else
+    .weui_cell
+      .weui_cell_bd.weui_cell_primary 暂时没有提供服务，请添加服务

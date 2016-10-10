@@ -1,0 +1,9 @@
+$('table').remove();
+$("<%= j render partial: 'table' %>").prependTo('.calender-container');
+$('.calender-edit').empty().append("<%= j render partial: 'index' %>");
+
+var $dialog = $('#calender-success');
+$dialog.show();
+$dialog.find('.weui_btn_dialog').on('click', function () {
+   $dialog.hide();
+});

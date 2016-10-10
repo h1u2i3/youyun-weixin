@@ -1,0 +1,4 @@
+<% if @resources && @resources.any? %>
+  $("#appraise-container").empty();
+  $("<%= j render partial: @partial, locals: { resources: @resources} %>").appendTo("#appraise-container");
+<% end %>

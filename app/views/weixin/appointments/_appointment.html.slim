@@ -1,0 +1,12 @@
+.weui_cell.weui_cells_access.appointment-list[data-link="#{weixin_appointment_path(appointment)}"]
+  .weui_cell_bd.weui_cell_primary
+    p
+      b 医生姓名:
+      = appointment.doctor.name
+    p
+      b 购买服务:
+      = appointment.service_name
+    p
+      b 购买时间:
+      = appointment.created_at.strftime("%Y年%m月%d日 %H:%M:%S")
+  .weui_cell_ft

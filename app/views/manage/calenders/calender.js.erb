@@ -1,0 +1,6 @@
+$("#doctor-calender").empty();
+<% if @doctor %>
+  $("<%= j render partial: 'doctor' %>").appendTo("#doctor-calender");
+<% else %>
+  $("<%= j render 'nodoctor' %>").appendTo("#doctor-calender");
+<% end %>

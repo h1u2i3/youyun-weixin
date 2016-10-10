@@ -1,0 +1,42 @@
+= weixin_header "诊疗确认", doctor_clinics_path
+= weixin_content do
+
+  header.clinic-search
+    = form_tag manual_doctor_clinics_path, method: :get
+      = text_field_tag(:unique_number, nil, placeholder: "请输入订单编号")
+      = submit_tag "查找", class: 'weui_btn weui_btn_primary'
+  .weui_cells
+    - if @appointments.blank?
+      .weui_cell
+        .weui_cell_bd.weui_cell_primary
+          p 今天已经没有未完成的预约订单
+    - else
+      - @appointments.each do |appointment|
+        .weui_cell
+          .weui_cell_bd.weui_cell_primary
+            p
+              b 订单编号：
+              = appointment.appoint_unique_number
+            p
+              b 描述症状：
+              = appointment.case.symptom
+          .weui_cell_ft
+            - unless appointment.finished?
+              button.weui_btn.weui_btn_primary.clinic-end[data-link="#{doctor_clinics_path}" data-appointment="#{appointment.id}"] 诊疗结束
+  .weui_dialog_confirm.clinic-manual-confirm[style="display:none;"]
+    .weui_mask
+    .weui_dialog
+      .weui_dialog_hd
+        strong.weui_dialog_title 提示
+      .weui_dialog_bd 确认该订单已经诊疗完毕么?
+      .weui_dialog_ft
+        a[href="javascript:;" class="weui_btn_dialog primary"] 确定
+        a[href="javascript:;" class="weui_btn_dialog default"] 取消
+  .weui_dialog_alert#clinic-success[style="display: none;"]
+      .weui_mask
+      .weui_dialog
+          .weui_dialog_hd
+            strong.weui_dialog_title 提示
+          .weui_dialog_bd 操作成功。
+          .weui_dialog_ft
+              a.weui_btn_dialog.primary[href="javascript:;"] 确定

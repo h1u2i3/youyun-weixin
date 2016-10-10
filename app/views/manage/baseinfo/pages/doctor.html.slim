@@ -1,0 +1,48 @@
+.ui.large.breadcrumb#manage-content-nav
+  a.section 管理平台
+  i.right.chevron.icon.divider
+  a.section 基础数据
+  i.right.chevron.icon.divider
+  a.section 医生基础信息
+.ui.divider
+
+#manage-content-body
+  h2
+    i.hospital.icon
+    | 医院
+  .ui.right.labeled.left.icon.input
+    i.hospital.icon
+    input#baseinfo-hospital-value placeholder="输入名称" type="text"
+    a.ui.tag.label#baseinfo-add-hospital 增加医院
+  #hospital-labels
+    = render partial: 'doctor_info_label', collection: @hospitals, as: :object, locals: { kind: 'hospital' }
+  .ui.divider
+  h2
+    i.emergency.icon
+    | 科室
+  .ui.right.labeled.left.icon.input
+    i.emergency.icon
+    input#baseinfo-department-value placeholder="输入名称" type="text"
+    a.ui.tag.label#baseinfo-add-department 增加科室
+  #department-labels
+    = render partial: 'doctor_info_label', collection: @departments, as: :object, locals: { kind: 'department' }
+  .ui.divider
+  h2
+    i.thumbs.outline.up.icon
+    | 擅长疾病
+  .ui.right.labeled.left.icon.input
+    i.thumbs.outline.up.icon
+    input#baseinfo-skill-value placeholder="输入名称" type="text"
+    a.ui.tag.label#baseinfo-add-skill 增加擅长疾病
+  #skill-labels
+    = render partial: 'doctor_info_label', collection: @skills, as: :object, locals: { kind: 'skill' }
+  .ui.divider
+  h2
+    i.level.up.icon
+    | 职称
+  .ui.right.labeled.left.icon.input
+    i.level.up.icon
+    input#baseinfo-grade-value placeholder="输入名称" type="text"
+    a.ui.tag.label#baseinfo-add-grade 增加职称
+  #grade-labels
+    = render partial: 'doctor_info_label', collection: @grades, as: :object, locals: { kind: 'grade' }

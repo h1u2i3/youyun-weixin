@@ -1,0 +1,19 @@
+.content
+  .ui.orange.right.ribbon.label
+    | ￥
+    = good.price
+  .header
+    = good.name
+  .meta
+    .ui.red.labels
+      - good.tags.each do |tag|
+        .ui.label
+          = tag.name
+  .description
+    = simple_format(good.description)
+.extra.content
+  .ui.two.buttons
+    = link_to '编辑', edit_manage_good_path(good), remote: true, class: 'ui basic green button'
+    = link_to_if good.published, '撤销', publish_manage_good_path(good), method: :post, remote:true, class: 'ui basic red button', data: { confirm: '是否要确定撤销发布这项服务？'} do
+      = link_to '发布', publish_manage_good_path(good), method: :post, remote:true, class: 'ui basic blue button'
+  = link_to '删除', manage_good_path(good), remote: true, method: :delete, data: { confirm: '是否要确定删除这项服务？'}, class: 'ui basic red fluid button'

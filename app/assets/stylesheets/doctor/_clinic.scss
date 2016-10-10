@@ -1,0 +1,58 @@
+.clinic {
+  text-align: center;
+  margin: 40px auto;
+
+  .clinic-icon {
+    margin: 20px auto;
+  }
+
+  .clinic-message {
+    font-size: $large-font-size;
+    margin-bottom: 40px;
+  }
+
+  .clinic-action {
+    width: 60%;
+    margin: 0;
+    margin: 20px auto;
+  }
+
+  .clinic-manual {
+    margin-bottom: 20px;
+
+    a {
+      font-size: 14px;
+      color: #61749B;
+
+      &:visited {
+        color: #61749B;
+      }
+    }
+  }
+
+}
+
+.clinic-search {
+  margin: 15px 0;
+  form {
+    width: 100%;
+
+    input[type=text] {
+      @include calc("width", "100% - 144px");
+      margin-left: 15px;
+      margin-right: 10px;
+      float: left;
+      height: 38px;
+      -webkit-appearance: none;
+      border-radius: 0;
+      border: 1px #d9d9d9 solid;
+    }
+
+    input[type=submit] {
+      width: 100px;
+      float: right;
+      margin-right: 15px
+    }
+    @include clearfix;
+  }
+}

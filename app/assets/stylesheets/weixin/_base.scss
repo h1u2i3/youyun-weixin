@@ -1,0 +1,136 @@
+.hd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: $white-color;
+  background-color: $primary-color;
+  height: 46px;
+  z-index: 10;
+  -moz-box-shadow:0px 1px 1px #ccc;
+  -webkit-box-shadow:0px 1px 1px #ccc;
+  box-shadow:0px 1px 1px #ccc;
+
+  h1.page_title {
+    margin: 0;
+    padding: 0;
+    font-size: $title-font-size;
+    line-height: 46px;
+  }
+
+  .sidebar-toggle {
+    font-weight: bold;
+    position: absolute;
+    top: 11px;
+    border-radius: 100%;
+    left: 20px;
+    cursor: pointer;
+  }
+
+  .back {
+    font-weight: normal;
+    position: absolute;
+    top: 0;
+    border-radius: 100%;
+    left: 20px;
+    cursor: pointer;
+    color: $white-color;
+    height: 46px;
+    width: 46px;
+    line-height: 46px
+  }
+}
+
+.page {
+  padding-top: 46px;
+  padding-bottom: 60px;
+}
+
+body {
+  background-color: $background-color;
+}
+
+.weui_cells {
+  margin-top: 0;
+
+  .weui_cell {
+    &:before {
+      left: 0;
+    }
+  }
+}
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: $white-color;
+  color: rgba($black-color, .5);
+  -moz-box-shadow:0px -1px 0px rgba(#ccc, .6);
+  -webkit-box-shadow:0px -1px 0px rgba(#ccc, .6);
+  box-shadow:0px -1px 0px rgba(#ccc, .6);
+
+  ul {
+    width: 100%;
+
+    li {
+      float: left;
+      width: 33.33%;
+      text-align: center;
+      height: 48px;
+      padding-bottom: 2px;
+
+      &.active {
+        color: $primary-color;
+        border-bottom: 2px solid $primary-color;
+      }
+
+      span {
+        position: relative;
+        z-index: 10;
+        top: 6px;
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        line-height: 14px;
+        position: relative;
+        top: 8px;
+      }
+    }
+  }
+
+  @include clearfix;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* ==========================================================================
+   link
+   ========================================================================== */
+
+a {
+  color: rgba($black-color, .6);
+
+  &:visited {
+    color: rgba($black-color, .6);
+  }
+}
+
+/* ==========================================================================
+   Fix Fastclick + Weui
+   ========================================================================== */
+
+label.weui_cell > * {
+  pointer-events:none;
+}

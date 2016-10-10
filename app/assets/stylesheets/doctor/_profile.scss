@@ -1,0 +1,25 @@
+.d-profile {
+  .d-table {
+    ul {
+      width: 100%;
+
+      li {
+        font-size: 14px;
+        line-height: 20px;
+        width: 50%;
+        float: left;
+
+        @include clearfix;
+      }
+    }
+  }
+}
+
+span.price {
+  font-size: 14px;
+  color: red;
+}
+
+ul.apm-case {
+  font-size: 14px;
+}
